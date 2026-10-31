@@ -32,17 +32,17 @@ PORT=3000
 
 Run these scripts in order from your terminal:
 
-##### Step 1: Create collections, validation, and indexes
+##### 1. Create collections, validation, and indexes
 ```bash
 mongosh tgts_tracker db/01_create_collections.js
 ```
 
-##### Step 2: Insert sample data
+##### 2. Insert sample data
 ```bash
 mongosh tgts_tracker db/02_seed_data.js
 ```
 
-##### Step 3: Run aggregation pipeline
+##### 3. Run aggregation pipeline
 ```bash
 mongosh tgts_tracker db/03_aggregation.js
 ```
