@@ -1,70 +1,60 @@
-# TGTS Tracker — MongoDB Implementation
+### TGTS Tracker using MongoDB Implementation
 
 A shipment tracking database built with MongoDB, Node.js, and Express.
 Supports customer profiles, dashboard config, alerts with TTL, and UI preferences.
 
----
-
-## Prerequisites
+#### Prerequisites
 
 - Node.js v18+
 - MongoDB (local) or MongoDB Atlas
 - mongosh
 
----
+#### Setup
 
-## Setup
-
-### 1. Clone / unzip the project
+##### 1. Clone / unzip the project
 ```bash
 cd tgts-tracker
 ```
 
-### 2. Install dependencies
+##### 2. Install dependencies
 ```bash
 npm install
 ```
 
-### 3. Configure environment
+##### 3. Configure environment
 Create a `.env` file in the root folder:
 ```
 MONGO_URI=mongodb://localhost:27017/tgts_tracker
 PORT=3000
 ```
 
----
-
-## Database Setup
+#### Database Setup
 
 Run these scripts in order from your terminal:
 
-### Step 1 — Create collections, validation, and indexes
+##### Step 1: Create collections, validation, and indexes
 ```bash
 mongosh tgts_tracker db/01_create_collections.js
 ```
 
-### Step 2 — Insert sample data
+##### Step 2: Insert sample data
 ```bash
 mongosh tgts_tracker db/02_seed_data.js
 ```
 
-### Step 3 — Run aggregation pipeline
+##### Step 3: Run aggregation pipeline
 ```bash
 mongosh tgts_tracker db/03_aggregation.js
 ```
 
----
-
-## Start the API
+#### Start the API
 ```bash
 node api/server.js
 ```
 
 Server runs at: `http://localhost:3000`
 
----
-
-## Project Structure
+#### Project Structure
 ```
 tgts-tracker/
 ├── db/
@@ -83,9 +73,7 @@ tgts-tracker/
 └── README.md
 ```
 
----
-
-## Sharding Strategy
+#### Sharding Strategy
 
 Shard key: `{ _id: "hashed" }` on all collections.
 Rationale: Hash sharding prevents hotspots from sequential account numbers
